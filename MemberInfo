@@ -1,0 +1,17 @@
+package StuProject;
+
+public class MemberInfo {
+
+	String name, ID, PW, adress, phone;
+	
+	MemberInfo(){}
+	
+	MemberInfo(String name, String ID, String PW, String adress, String phone) {
+		this.name = name;
+		this.ID = ID;
+		this.PW = PW;
+		this.adress = adress;
+		this.phone = phone;
+	}
+	
+}//class
