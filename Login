@@ -1,0 +1,83 @@
+package StuProject;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Login {
+
+	Scanner sc = new Scanner(System.in);
+	ArrayList<LoginInfo> login = new ArrayList<>();
+	ArrayList<LoginInfo> saveLogin = new ArrayList<>();
+	String ID, PW, data;
+	String[] temp = null;
+	int flag;
+
+	Login() {
+	}
+
+	void login() {
+
+		BufferedReader br = null;
+		try {
+			br = new BufferedReader(new FileReader("C:\\Member.txt"));
+			while (true) {
+				data = br.readLine();
+				if (data == null)
+					break;
+				temp = data.split("\t");
+				saveLogin.add(new LoginInfo(temp[1], temp[2]));
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				br.close();
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
+		}
+		LoginInfo.count = 0;
+
+		while (flag < 1) {
+
+			System.out.println("ID를 입력하세요. <0.프로그램종료>");
+			ID = sc.next();
+			System.out.println("PW를 입력하세요.");
+			PW = sc.next();
+
+			for (int i = 0; i < 1; i++) {
+				login.add(new LoginInfo(ID, PW));
+			}
+
+			for (int i = 0; i < login.size(); i++) {
+				for (int j = 0; j < saveLogin.size(); j++) {
+					if (login.get(i).ID.equals(saveLogin.get(j).ID) && login.get(i).PW.equals(saveLogin.get(j).PW)) {
+						System.out.println("ID와 PW가 일치합니다. 성적처리프로그램을 실행합니다.\n");
+						flag = 1;
+						break;
+					}
+				}
+				if ( flag == 0 ) {
+					System.out.println("ID 또는 PW가 일치하지 않습니다. 다시 입력해주세요. < 입력횟수 : " + LoginInfo.count + "번 >");
+					break;
+				}
+			}
+			
+			if ( LoginInfo.count == 3 ) {
+				System.out.println("입력횟수를 초과하였습니다. 프로그램이 종료됩니다.\n");
+				System.out.println("[[ 프로그램종료 ]]");
+				System.out.close();
+				
+			}
+
+		} // while
+		flag = 0;
+
+	}// void_login
+
+}// class
