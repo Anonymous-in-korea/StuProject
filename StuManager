@@ -1,0 +1,91 @@
+package StuProject;
+
+import java.util.Scanner;
+
+public class StuManager {
+
+	public static void main(String[] args) {
+
+		// StuManager //StuCal //Student ...
+		Scanner sc = new Scanner(System.in);
+		MainScreen main = new MainScreen(); //회원가입, 로그인 선택화면
+		Member mem = new Member(); //회원가입
+		Login log = new Login(); //로그인
+		ScoreScreen ss = new ScoreScreen(); //학생성적입력 선택화면
+		StuCal cal = new StuCal(); //학생성적입력
+		int choice;
+
+		loop: while (true) { //회원가입, 로그인 선택
+
+			choice = main.mainScreen();
+
+			switch (choice) {
+
+			case 1:
+				System.out.println("[[ 회원가입을 진행합니다 ]]");
+				mem.member();
+				break;
+
+			case 2:
+				System.out.println("[[ 로그인을 해주세요 ]]");
+				log.login();
+				break;
+
+			case 0:
+				System.out.println("[[ 프로그램종료 ]]");
+				break loop;
+
+			}// switch
+			break;
+		} // while
+
+		
+		loop: while (true) { //학생성적입력
+
+			choice = ss.ScoreScreen();
+
+			switch (choice) {
+
+			case 1:// 성적입력
+				cal.scoreInput();
+				break;
+
+			case 2:// 성적출력
+				cal.scoreOutput();
+				break;
+
+			case 3:// 성적수정
+				cal.scoreModify();
+				break;
+
+			case 4:// 학생검색
+				cal.stuSearch();
+				break;
+
+			case 5:// 등수처리
+				cal.stuRank();
+				break;
+
+			case 6:// 성적정렬
+				cal.stuSort();
+				break;
+
+			case 7:// 파일저장
+				cal.scoreSave();
+				break;
+
+			case 8:// 파일불러오기
+				cal.scoreLoad();
+				break;
+
+			case 0:// 프로그램종료
+				System.out.println("[[ 프로그램종료 ]]");
+				break loop;
+
+			}// switch
+
+		} // while
+
+	}// main
+
+}// class
