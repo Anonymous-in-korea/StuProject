@@ -1,0 +1,44 @@
+package StuProject;
+
+public class StuInfo {
+
+	static int count;
+	
+	int kor, eng, math, total, rank;
+	double avg;
+	String stuNum, name, grade;
+	String[] title = {"이름","국어","영어","수학","총점","평균","등수","학점"};
+	
+	StuInfo(){
+		count++;
+		stuNum = String.format("s%04d", count);
+	}
+	
+	StuInfo(String name, int kor, int eng, int math, int total, double avg, int rank, String grade){
+		count++;
+		stuNum = String.format("s%04d", count);
+		this.name = name;
+		this.kor = kor;
+		this.eng = eng;
+		this.math = math;
+		this.total = kor + eng + math;
+		this.avg = this.total / 3.0;
+		this.rank = rank;
+		this.grade = grade;
+	}
+
+	public StuInfo(String stuNum, String name, int kor, int eng, int math, int total, double avg, int rank,
+			String grade) {
+		super();
+		this.stuNum = stuNum;
+		this.name = name;
+		this.kor = kor;
+		this.eng = eng;
+		this.math = math;
+		this.total = total;
+		this.avg = avg;
+		this.rank = rank;
+		this.grade = grade;
+	}
+	
+}
