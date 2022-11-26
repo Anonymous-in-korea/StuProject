@@ -1,0 +1,20 @@
+package StuProject;
+
+public class LoginInfo {
+
+	static int count;
+	String ID, PW;
+	
+	{
+		count++;
+	}
+	
+	LoginInfo(){
+	}
+	
+	LoginInfo(String ID, String PW) {
+		this.ID = ID;
+		this.PW = PW;
+	}
+	
+}
