@@ -1,0 +1,27 @@
+package StuProject;
+
+import java.util.Scanner;
+
+public class MainScreen {
+
+	Scanner sc = new Scanner(System.in);
+	int choice;
+	
+	MainScreen(){}
+	
+	int mainScreen() {
+		
+		System.out.println("[[ 성적처리 프로그램 ]]");
+		System.out.print("1. 회원가입    ");
+		System.out.print("2. 로그인    ");
+		System.out.println("0. 프로그램종료");
+		System.out.println("-----------------------------------");
+		System.out.println("원하는 항목의 번호를 입력해주세요");
+		choice = sc.nextInt();
+		System.out.println();
+		
+		return choice;
+		
+	}
+	
+}
