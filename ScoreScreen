@@ -1,0 +1,33 @@
+package StuProject;
+
+import java.util.Scanner;
+
+public class ScoreScreen {
+
+	Scanner sc = new Scanner(System.in);
+	int choice;
+	
+	ScoreScreen(){}
+	
+	int ScoreScreen() {
+		
+		System.out.println("[[ 성적처리 프로그램 ]]");
+		System.out.print("1. 성적입력\t");
+		System.out.print("2. 성적출력\t");
+		System.out.print("3. 성적수정\t");
+		System.out.println("4. 학생검색");
+		System.out.print("5. 등수처리\t");
+		System.out.print("6. 성적정렬선택\t");
+		System.out.print("7. 파일저장오기\t");
+		System.out.print("8. 파일불러오기\t");
+		System.out.println("0. 프로그램종료");
+		System.out.println("-----------------------------------------------------------------------");
+		System.out.println("원하는 항목의 번호를 입력해주세요.");
+		choice = sc.nextInt();
+		System.out.println();
+		
+		return choice;
+	}
+			
+	
+}
