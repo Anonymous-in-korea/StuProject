@@ -1,0 +1,12 @@
+package StuProject;
+
+import java.util.Comparator;
+
+public class StuNum implements Comparator<StuInfo> {
+
+	@Override
+	public int compare(StuInfo o1, StuInfo o2) {
+		return o1.stuNum.compareTo(o2.stuNum);
+	}
+
+}
